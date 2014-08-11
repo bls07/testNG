@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="SampleSuite" parallel="classes" thread-count="2" verbose="1" >
+  <listeners>
+    <listener class-name="tests.CustomListener" />
+  </listeners>
+  
+   <groups>
+    <run>
+        <exclude name="ver4.0"/>
+    </run>
+  </groups>
+  
+  <test name="Login_113" >
+    <classes>
+       <class name="tests.LoginTest113" />
+    </classes>
+  </test>
+ 
+  <test name="Login_51">
+    <classes>
+      <class name="tests.LoginTest51"/>
+    </classes>
+  </test>
+</suite>

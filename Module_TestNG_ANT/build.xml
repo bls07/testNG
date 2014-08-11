@@ -1,0 +1,90 @@
+<?xml version="1.0"?> 
+<project name="Module_TestNG_ANT" default="info" basedir="."> 
+	<target name="info"> <echo>Hello Welcome to suite Module_TestNG_ANT</echo> </target> 
+	
+	
+<!--This is for junit Reports-->
+	
+	<target name="reports">
+	  <junitreport todir="${basedir}/test-report">
+	    <fileset dir="${basedir}/test-output/junitreports">
+	      <include name="*.xml"/>
+	    </fileset>
+	    <report format="noframes"  todir="test-report"/>
+	  </junitreport>
+	</target>
+	
+<!--Defining a task using ANT and its source files-->
+
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+	    <classpath>
+	        <pathelement location="lib/testng-6.8.jar"/>
+	    </classpath>
+	</taskdef>
+
+	
+<!--Imposing that task on a particular files and giving a target name which can be accessed from Command line-->
+	
+	<target name="runCmd">
+		<echo message="Running Tests..." />
+		<tstamp>
+			<format property="CURRENT_TIME" pattern="dd-MMM-yyyy HH mm ss"/>
+		</tstamp>
+		
+		<property name="testresults-folder" value="E:\conference\Results\${CURRENT_TIME}_SampleSuite"/>
+	   
+		<testng classpath="E:\conference\Module_TestNG_ANT\bin;E:\conference\Module_TestNG_ANT\lib\*">
+	        <xmlfileset dir="${basedir}" includes="testng.xml"/>
+	    </testng>  
+	</target>
+	
+<!--For running failed Test cases-->	
+	
+	<target name="reRun">
+		<echo message="running failed test cases" />
+		    <testng classpath="E:\conference\Module_TestNG_ANT\bin;E:\conference\Module_TestNG_ANT\lib\*">
+		        <xmlfileset dir="${basedir}/test-output" includes="testng-failed.xml"/>
+		    </testng> 
+	</target>
+		
+
+<!-- For Generating Xslt reports-->
+
+	<target name="xslt" depends="runCmd" >
+		
+		<path id="master-classpath">
+	        <fileset dir="${basedir}/lib" includes="*.jar" />
+	    </path>
+
+	                 
+	     <xslt in="E:\conference\Module_TestNG_ANT\test-output\testng-results.xml" style="${basedir}/testng-results.xsl" out="${testresults-folder}/index.html" processor="SaxonLiaison">
+	                        
+	            <param expression="${testresults-folder}" name="testNgXslt.outputDir" />
+
+	            <param expression="true" name="testNgXslt.sortTestCaseLinks" />
+
+	            <param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+
+	            <param expression="true" name="testNgXslt.showRuntimeTotals" />
+
+	            <classpath refid="master-classpath">
+	            </classpath>
+	     	
+		 </xslt>	
+
+<!-- supplying cmd args to a executable file -->
+		
+		<exec executable="C:/Program Files/Mozilla Firefox/firefox.exe" spawn="true">
+		    	<arg value="file:///${testresults-folder}/index.html"/>
+		</exec>
+	
+	</target>
+	
+</project>
+
+			
+			
+	
+			
+		
+		
