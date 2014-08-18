@@ -40,7 +40,7 @@ public class LoginTest113 {
 	    driver.findElement(By.id("user_login")).sendKeys("admin");
 	    driver.findElement(By.id("user_pass")).sendKeys("admin589");
 		driver.findElement(By.cssSelector("input.btn.login-btn")).click();
-		System.out.println("workspace");
+		System.out.println("workspace change");
  }
 	
 	@Test(dependsOnMethods = { "login113" })
