@@ -21,8 +21,14 @@
 	        <pathelement location="lib/testng-6.8.jar"/>
 	    </classpath>
 	</taskdef>
+<!--compilation of test fromt the src-->
+<target name="compile">
+	<echo message="trying to compile"/>
+			<javac 	srcdir = "${basedir}/src"
+				   	destdir = "${basedir}/bin"
+					target = "1.8"/>
+</target>
 
-	
 <!--Imposing that task on a particular files and giving a target name which can be accessed from Command line-->
 	
 	<target name="runCmd">
