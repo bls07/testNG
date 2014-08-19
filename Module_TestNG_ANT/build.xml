@@ -33,7 +33,7 @@
 		
 		<property name="testresults-folder" value="E:\conference\Results\${CURRENT_TIME}_SampleSuite"/>
 	   
-		<testng classpath="E:\conference\Module_TestNG_ANT\bin;E:\conference\Module_TestNG_ANT\lib\*">
+		<testng classpath="C:\Users\srinivasulu\.jenkins\workspace\selenium\Module_TestNG_ANT\bin;C:\Users\srinivasulu\.jenkins\workspace\selenium\Module_TestNG_ANT\lib\*">
 	        <xmlfileset dir="${basedir}" includes="testng.xml"/>
 	    </testng>  
 	</target>
@@ -57,7 +57,7 @@
 	    </path>
 
 	                 
-	     <xslt in="E:\conference\Module_TestNG_ANT\test-output\testng-results.xml" style="${basedir}/testng-results.xsl" out="${testresults-folder}/index.html" processor="SaxonLiaison">
+	     <xslt in="C:\Users\srinivasulu\.jenkins\workspace\selenium\Module_TestNG_ANT\test-output\testng-results.xml" style="${basedir}/testng-results.xsl" out="${testresults-folder}/index.html" processor="SaxonLiaison">
 	                        
 	            <param expression="${testresults-folder}" name="testNgXslt.outputDir" />
 
