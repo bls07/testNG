@@ -40,7 +40,7 @@ public class LoginTest113 {
 	    driver.findElement(By.id("user_login")).sendKeys("admin");
 	    driver.findElement(By.id("user_pass")).sendKeys("admin589");
 		driver.findElement(By.cssSelector("input.btn.login-btn")).click();
-		System.out.println("frequent commit 1");
+		System.out.println("frequent commit 2");
  }
 	
 	@Test(dependsOnMethods = { "login113" })
