@@ -34,7 +34,7 @@ public class LoginTest113 {
   
   
 	
-	@Test(timeOut=3000)
+	@Test()
 	public void login113()  {
 		driver.findElement(By.id("user_login")).clear();
 	    driver.findElement(By.id("user_login")).sendKeys("admin");
