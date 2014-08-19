@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
  
-<suite name="SampleSuite" parallel="classes" thread-count="2" verbose="1" >
+<suite name="SampleSuite" verbose="1" >
   <listeners>
     <listener class-name="tests.CustomListener" />
   </listeners>
@@ -10,16 +10,17 @@
         <exclude name="ver4.0"/>
     </run>
   </groups>
-  
-  <test name="Login_113" >
-    <classes>
-       <class name="tests.LoginTest113" />
-    </classes>
-  </test>
  
-  <test name="Login_51">
+<test name="Login_51">
     <classes>
       <class name="tests.LoginTest51"/>
     </classes>
-  </test>
+</test>
+
+<test name="Login_113" >
+    <classes>
+       <class name="tests.LoginTest113" />
+    </classes>
+</test>
+
 </suite>

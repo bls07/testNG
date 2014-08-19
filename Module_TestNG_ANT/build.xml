@@ -33,7 +33,7 @@
 		
 		<property name="testresults-folder" value="E:\conference\Results\${CURRENT_TIME}_SampleSuite"/>
 	   
-		<testng classpath="C:\Users\srinivasulu\.jenkins\workspace\selenium\Module_TestNG_ANT\bin;C:\Users\srinivasulu\.jenkins\workspace\selenium\Module_TestNG_ANT\lib\*">
+		<testng classpath="C:\Users\srinivasulu\git\Local_bls07\Module_TestNG_ANT\bin;C:\Users\srinivasulu\git\Local_bls07\Module_TestNG_ANT\lib\*">
 	        <xmlfileset dir="${basedir}" includes="testng.xml"/>
 	    </testng>  
 	</target>
