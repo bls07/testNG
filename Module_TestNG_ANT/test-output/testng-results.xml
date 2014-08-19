@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="54665" started-at="2014-08-11T10:41:41Z" finished-at="2014-08-11T10:42:36Z">
+  <suite name="Default suite" duration-ms="71483" started-at="2014-08-19T12:03:28Z" finished-at="2014-08-19T12:04:39Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="54665" started-at="2014-08-11T10:41:41Z" finished-at="2014-08-11T10:42:36Z">
+    <test name="Default test" duration-ms="71483" started-at="2014-08-19T12:03:28Z" finished-at="2014-08-19T12:04:39Z">
       <class name="tests.LoginTest51">
-        <test-method status="PASS" signature="miq51()[pri:0, instance:tests.LoginTest51@e0696c]" name="miq51" is-config="true" duration-ms="9571" started-at="2014-08-11T16:11:41Z" finished-at="2014-08-11T16:11:51Z">
+        <test-method status="PASS" signature="miq51()[pri:0, instance:tests.LoginTest51@12f2fa7]" name="miq51" is-config="true" duration-ms="21216" started-at="2014-08-19T17:33:28Z" finished-at="2014-08-19T17:33:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- miq51 -->
-        <test-method status="PASS" signature="login51()[pri:0, instance:tests.LoginTest51@e0696c]" name="login51" duration-ms="34936" started-at="2014-08-11T16:11:51Z" description="login51--&gt;class--&gt;LoginTest51--&gt;tests" finished-at="2014-08-11T16:12:26Z">
+        <test-method status="PASS" signature="login51()[pri:0, instance:tests.LoginTest51@12f2fa7]" name="login51" duration-ms="42106" started-at="2014-08-19T17:33:49Z" description="login51--&gt;class--&gt;LoginTest51--&gt;tests" finished-at="2014-08-19T17:34:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login51 -->
-        <test-method status="PASS" signature="logout51()[pri:0, instance:tests.LoginTest51@e0696c]" name="logout51" duration-ms="10145" started-at="2014-08-11T16:12:26Z" depends-on-methods="tests.LoginTest51.login51" finished-at="2014-08-11T16:12:36Z">
+        <test-method status="PASS" signature="logout51()[pri:0, instance:tests.LoginTest51@12f2fa7]" name="logout51" duration-ms="8144" started-at="2014-08-19T17:34:31Z" depends-on-methods="tests.LoginTest51.login51" finished-at="2014-08-19T17:34:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout51 -->
