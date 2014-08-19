@@ -52,7 +52,7 @@ public class CustomListener extends TestListenerAdapter {
 	 	@Override
 	    public void onTestFailure(ITestResult tr) {
 	 	  	insert(tr.getName(),new Date(tr.getStartMillis()).toString(),new Date(tr.getEndMillis()).toString(),"FAIL",tr);
-	 		log(tr.getName()+"FAIL\n");
+	 		log(tr.getName()+"FAILED\n");
 			    
 	    }
 		 
@@ -60,13 +60,13 @@ public class CustomListener extends TestListenerAdapter {
 		@Override
 	    public void onTestSkipped(ITestResult tr) {
 	    	insert(tr.getName(),new Date(tr.getStartMillis()).toString(),new Date(tr.getEndMillis()).toString(),"SKIP",tr);
-	        log(tr.getName()+"SKIP\n");
+	        log(tr.getName()+"SKIPPED\n");
 	    }
 		 
 	    @Override
 	    public void onTestSuccess(ITestResult tr) {
 	    	insert(tr.getName(),new Date(tr.getStartMillis()).toString(),new Date(tr.getEndMillis()).toString(),"PASS",tr);
-	    	log(tr.getName()+"PASS\n");
+	    	log(tr.getName()+"PASSED TEST\n");
 	    }
 		 
 	    private void log(String string) {
