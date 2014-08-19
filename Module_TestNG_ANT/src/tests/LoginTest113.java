@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -40,7 +41,7 @@ public class LoginTest113 {
 	    driver.findElement(By.id("user_login")).sendKeys("admin");
 	    driver.findElement(By.id("user_pass")).sendKeys("admin589");
 		driver.findElement(By.cssSelector("input.btn.login-btn")).click();
-		
+		Reporter.log("testing");
  }
 	
 	@Test(dependsOnMethods = { "login113" })
