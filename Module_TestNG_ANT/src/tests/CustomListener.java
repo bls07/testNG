@@ -70,7 +70,7 @@ public class CustomListener extends TestListenerAdapter {
 	    }
 		 
 	    private void log(String string) {
-	        System.out.print(string);
+	        System.out.print(string+"commit 1");
 	     
 	    }
 
