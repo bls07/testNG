@@ -4,7 +4,7 @@
 	<target name="info"> <echo>Hello Welcome to suite Module_TestNG_ANT</echo> </target> 
 
 	<property name="project.dir" value="${basedir}"/>
-	<property name="build.dir" value="${basedir}/build" />
+	<property name="build.dir" value="${basedir}/build/tests" />
 	<property name="jar.dir" value="${basedir}/lib" />
 	<property name="src.dir" value="${basedir}/src" />
 	<property name="ng.result" value="test-output" />
