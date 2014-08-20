@@ -1,10 +1,10 @@
 <?xml version="1.0"?> 
 <project name="Module_TestNG_ANT" default="info" basedir="."> 
 
-	<target name="info"> <echo>Hello Welcome to suite Module_TestNG_ANT</echo> </target> 
+	<target name="info"> <echo>Hello Welcome to project Module_TestNG_ANT</echo> </target> 
 
 	<property name="project.dir" value="${basedir}"/>
-	<property name="build.dir" value="${basedir}/build/tests" />
+	<property name="build.dir" value="${basedir}/build" />
 	<property name="jar.dir" value="${basedir}/lib" />
 	<property name="src.dir" value="${basedir}/src" />
 	<property name="ng.result" value="test-output" />
@@ -17,7 +17,14 @@
 	    </path>
 	    <pathconvert pathsep=":" property="test.classpath" refid="classpath_jars" />
 	</target>
-
+	
+	<!--Defining a task using ANT and its source files-->
+	
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+	    <classpath>
+	        <pathelement location="lib/testng-6.8.jar"/>
+	    </classpath>
+	</taskdef>
 	
 	<!-- Deleting directories -->
 	
@@ -35,19 +42,15 @@
 	<!-- Compiling java files -->
 	
 	<target name="compile" depends="clean,init,setClassPath">
-	    <echo message="this is new build" />
-	    <echo message="compiling...." />
-	    <javac destdir="${build.dir}" srcdir="${src.dir}" classpath="${test.classpath}" />
+	
+		<echo message="compiling...." />
+	    
+		<javac  destdir="${build.dir}" 
+	    		srcdir="${src.dir}" 
+				includeantruntime="false" 
+				classpath="${test.classpath}" />
 	</target>
 	
-	<!--Defining a task using ANT and its source files-->
-
-		<taskdef name="testng" classname="org.testng.TestNGAntTask">
-		    <classpath>
-		        <pathelement location="lib/testng-6.8.jar"/>
-		    </classpath>
-		</taskdef>
-
 	<!--Imposing that task on a particular files and giving a target name which can be accessed from Command line-->
 		
 		<target name="runCmd" depends="compile" >
@@ -55,13 +58,22 @@
 			<tstamp>
 				<format property="CURRENT_TIME" pattern="dd-MMM-yyyy HH mm ss"/>
 			</tstamp>
+			
 			<property name="testresults-folder" value="E:\conference\Results\${CURRENT_TIME}_SampleSuite"/>
-					   
-			<testng classpath="${build.dir};${jar.dir}*">
+		   
+			<testng classpath="${build.dir};${jar.dir}/*">
 		        <xmlfileset dir="${basedir}" includes="testng.xml"/>
 		    </testng>  
 		</target>
-
+		
+	<!--For running failed Test cases-->	
+		
+		<target name="reRun">
+			<echo message="running failed test cases" />
+			    <testng classpath="${build.dir};${jar.dir}/*">
+			        <xmlfileset dir="${basedir}/test-output" includes="testng-failed.xml"/>
+			    </testng> 
+		</target>
 			
 
 	<!-- For Generating Xslt reports-->
@@ -69,10 +81,9 @@
 		<target name="xslt" depends="runCmd" >
 			
 			<path id="master-classpath">
-		        <fileset dir="${basedir}/lib" includes="*.jar" />
+		        <fileset dir="${jar.dir}" includes="*.jar" />
 		    </path>
-
-		                 
+               
 		     <xslt in="${basedir}\test-output\testng-results.xml" style="${basedir}/testng-results.xsl" out="${testresults-folder}/index.html" processor="SaxonLiaison">
 		                        
 		            <param expression="${testresults-folder}" name="testNgXslt.outputDir" />
@@ -85,10 +96,9 @@
 
 		            <classpath refid="master-classpath">
 		            </classpath>
-		     	
-			 </xslt>
+		    </xslt>	
 		
-		</target>
-
-
+		</target>		
+	
+	
 </project>

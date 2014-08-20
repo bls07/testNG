@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
  
-<suite name="SampleSuite" verbose="1" >
+<suite name="SampleSuite" parallel="tests" thread-count="2" verbose="1" >
   <listeners>
     <listener class-name="tests.CustomListener" />
   </listeners>
