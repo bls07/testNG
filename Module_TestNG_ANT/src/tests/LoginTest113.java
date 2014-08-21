@@ -30,7 +30,7 @@ public class LoginTest113 {
 	  
 	    String baseUrl = "http://192.168.24.51/";
 	    driver.get(baseUrl + "/miq/monitoriq/login.php");
-
+	    
 	}
   
   
