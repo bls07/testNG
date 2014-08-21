@@ -69,7 +69,7 @@
 	<!--For running failed Test cases-->	
 		
 		<target name="reRun">
-			<echo message="running failed test cases" />
+			<echo message="running failed test cases " />
 			    <testng classpath="${build.dir};${jar.dir}/*">
 			        <xmlfileset dir="${basedir}/test-output" includes="testng-failed.xml"/>
 			    </testng> 
